@@ -1,0 +1,1375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Adratic Global — Services & Contact</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --navy: #0A1628;
+      --navy-mid: #112040;
+      --navy-light: #1a2f55;
+      --gold: #F5A623;
+      --gold-light: #FFC85A;
+      --gold-dark: #C8841A;
+      --white: #ffffff;
+      --off-white: #F4F1EB;
+      --gray: #8A97B0;
+      --text: #D0D9EC;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--navy);
+      color: var(--white);
+      overflow-x: hidden;
+    }
+
+    ::-webkit-scrollbar { width: 5px; }
+    ::-webkit-scrollbar-track { background: var(--navy); }
+    ::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 10px; }
+
+    /* ─── SECTION BASE ─── */
+    section { padding: 100px 5%; }
+
+    .section-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--gold);
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    .section-tag::before {
+      content: '';
+      width: 30px;
+      height: 1.5px;
+      background: var(--gold);
+      display: block;
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 800;
+      line-height: 1.15;
+      color: var(--white);
+      margin-bottom: 20px;
+    }
+
+    .section-title .accent { color: var(--gold); }
+
+    .section-desc {
+      color: var(--text);
+      font-size: 1rem;
+      line-height: 1.8;
+      max-width: 600px;
+      font-weight: 300;
+    }
+
+    /* ─── SERVICES ─── */
+    #services {
+      background: linear-gradient(180deg, var(--navy-mid) 0%, var(--navy) 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    #services::before {
+      content: '';
+      position: absolute;
+      left: -200px; top: -200px;
+      width: 700px; height: 700px;
+      background: radial-gradient(circle, rgba(245,166,35,0.05) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .services-header {
+      text-align: center;
+      margin-bottom: 70px;
+    }
+
+    .services-header .section-tag {
+      justify-content: center;
+    }
+    .services-header .section-tag::before { display: none; }
+    .services-header .section-tag::after {
+      content: '';
+      width: 30px;
+      height: 1.5px;
+      background: var(--gold);
+      display: block;
+    }
+
+    .services-header .section-desc {
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .service-card {
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 18px;
+      padding: 36px 32px;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.4s ease;
+      cursor: default;
+    }
+
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 0;
+      background: linear-gradient(180deg, rgba(245,166,35,0.08) 0%, transparent 100%);
+      transition: height 0.4s ease;
+    }
+
+    .service-card:hover::before { height: 100%; }
+
+    .service-card:hover {
+      border-color: rgba(245,166,35,0.25);
+      transform: translateY(-8px);
+      box-shadow: 0 25px 60px rgba(0,0,0,0.4), 0 0 0 1px rgba(245,166,35,0.1);
+    }
+
+    /* Top accent line on hover */
+    .service-card::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 0; height: 3px;
+      background: linear-gradient(90deg, var(--gold), var(--gold-light));
+      border-radius: 0 0 3px 0;
+      transition: width 0.5s ease;
+    }
+
+    .service-card:hover::after { width: 100%; }
+
+    .service-num {
+      position: absolute;
+      top: 24px;
+      right: 28px;
+      font-family: 'Playfair Display', serif;
+      font-size: 3.5rem;
+      font-weight: 900;
+      color: rgba(245,166,35,0.06);
+      line-height: 1;
+      transition: color 0.4s;
+    }
+
+    .service-card:hover .service-num { color: rgba(245,166,35,0.12); }
+
+    .service-icon-wrap {
+      width: 56px; height: 56px;
+      background: linear-gradient(135deg, rgba(245,166,35,0.15), rgba(245,166,35,0.05));
+      border: 1px solid rgba(245,166,35,0.2);
+      border-radius: 14px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.3rem;
+      color: var(--gold);
+      margin-bottom: 24px;
+      transition: all 0.3s ease;
+    }
+
+    .service-card:hover .service-icon-wrap {
+      background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+      color: var(--navy);
+      transform: scale(1.1);
+      box-shadow: 0 8px 25px rgba(245,166,35,0.3);
+    }
+
+    .service-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 12px;
+      line-height: 1.3;
+    }
+
+    .service-text {
+      font-size: 0.88rem;
+      color: var(--gray);
+      line-height: 1.7;
+      font-weight: 300;
+    }
+
+    .service-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--gold);
+      font-size: 0.82rem;
+      font-weight: 600;
+      margin-top: 20px;
+      text-decoration: none;
+      letter-spacing: 0.5px;
+      opacity: 0;
+      transform: translateY(5px);
+      transition: all 0.3s ease;
+    }
+
+    .service-card:hover .service-link {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .service-link i { font-size: 0.75rem; transition: transform 0.3s; }
+    .service-link:hover i { transform: translateX(4px); }
+
+    /* Featured card */
+    .service-card.featured {
+      background: linear-gradient(135deg, rgba(245,166,35,0.08), rgba(245,166,35,0.02));
+      border-color: rgba(245,166,35,0.2);
+      grid-column: span 1;
+    }
+
+    /* ─── WHY US ─── */
+    #why {
+      background: var(--navy);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .why-bg-text {
+      position: absolute;
+      left: -40px;
+      top: 50%;
+      transform: translateY(-50%) rotate(-90deg);
+      font-family: 'Playfair Display', serif;
+      font-size: 9rem;
+      font-weight: 900;
+      color: rgba(245,166,35,0.025);
+      pointer-events: none;
+      letter-spacing: 20px;
+      white-space: nowrap;
+    }
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 70px;
+      align-items: center;
+    }
+
+    .why-left .section-desc { margin-bottom: 40px; }
+
+    .why-cta-group {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+      color: var(--navy);
+      padding: 14px 28px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      box-shadow: 0 6px 25px rgba(245,166,35,0.3);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 35px rgba(245,166,35,0.45);
+    }
+
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: transparent;
+      color: var(--gold);
+      padding: 14px 28px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      text-decoration: none;
+      border: 1px solid rgba(245,166,35,0.35);
+      transition: all 0.3s ease;
+    }
+
+    .btn-outline:hover {
+      background: rgba(245,166,35,0.08);
+      border-color: var(--gold);
+      transform: translateY(-3px);
+    }
+
+    .why-right {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .why-card {
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 16px;
+      padding: 30px 24px;
+      transition: all 0.4s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .why-card::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0;
+      width: 0; height: 2px;
+      background: linear-gradient(90deg, var(--gold), transparent);
+      transition: width 0.4s ease;
+    }
+
+    .why-card:hover {
+      background: rgba(245,166,35,0.04);
+      border-color: rgba(245,166,35,0.18);
+      transform: translateY(-5px);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+    }
+
+    .why-card:hover::after { width: 100%; }
+
+    .why-card-icon {
+      width: 48px; height: 48px;
+      background: linear-gradient(135deg, rgba(245,166,35,0.12), rgba(245,166,35,0.04));
+      border: 1px solid rgba(245,166,35,0.15);
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem;
+      color: var(--gold);
+      margin-bottom: 18px;
+      transition: all 0.3s;
+    }
+
+    .why-card:hover .why-card-icon {
+      background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+      color: var(--navy);
+    }
+
+    .why-card-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 10px;
+    }
+
+    .why-card-text {
+      font-size: 0.83rem;
+      color: var(--gray);
+      line-height: 1.65;
+      font-weight: 300;
+    }
+
+    /* ─── TESTIMONIAL STRIP ─── */
+    .testimonial-strip {
+      background: linear-gradient(135deg, var(--navy-mid), var(--navy-light));
+      border-top: 1px solid rgba(245,166,35,0.1);
+      border-bottom: 1px solid rgba(245,166,35,0.1);
+      padding: 60px 5%;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .testimonial-strip::before {
+      content: '\201C';
+      position: absolute;
+      top: -20px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-family: 'Playfair Display', serif;
+      font-size: 10rem;
+      color: rgba(245,166,35,0.06);
+      line-height: 1;
+      pointer-events: none;
+    }
+
+    .testimonial-text {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.2rem, 2.5vw, 1.7rem);
+      font-weight: 600;
+      color: var(--white);
+      max-width: 800px;
+      margin: 0 auto 24px;
+      line-height: 1.5;
+      position: relative;
+      z-index: 1;
+    }
+
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+    }
+
+    .author-avatar {
+      width: 44px; height: 44px;
+      background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--navy);
+    }
+
+    .author-info { text-align: left; }
+
+    .author-name {
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: var(--white);
+    }
+
+    .author-role {
+      font-size: 0.78rem;
+      color: var(--gray);
+    }
+
+    /* ─── CONTACT ─── */
+    #contact {
+      background: linear-gradient(180deg, var(--navy) 0%, var(--navy-mid) 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    #contact::after {
+      content: '';
+      position: absolute;
+      right: -100px; bottom: -100px;
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(245,166,35,0.06) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 80px;
+      align-items: start;
+    }
+
+    .contact-left .section-desc { margin-bottom: 44px; }
+
+    .contact-info-list {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .contact-info-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      padding: 18px 20px;
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(255,255,255,0.05);
+      border-radius: 12px;
+      transition: all 0.3s ease;
+    }
+
+    .contact-info-item:hover {
+      background: rgba(245,166,35,0.04);
+      border-color: rgba(245,166,35,0.15);
+      transform: translateX(5px);
+    }
+
+    .contact-icon {
+      width: 40px; height: 40px;
+      background: rgba(245,166,35,0.1);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--gold);
+      font-size: 0.9rem;
+      flex-shrink: 0;
+    }
+
+    .contact-info-title {
+      font-size: 0.75rem;
+      color: var(--gray);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      font-weight: 600;
+      margin-bottom: 3px;
+    }
+
+    .contact-info-value {
+      font-size: 0.9rem;
+      color: var(--white);
+      font-weight: 500;
+    }
+
+    /* Social links */
+    .social-row {
+      display: flex;
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .social-btn {
+      width: 42px; height: 42px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--gray);
+      font-size: 0.95rem;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .social-btn:hover {
+      background: rgba(245,166,35,0.1);
+      border-color: rgba(245,166,35,0.3);
+      color: var(--gold);
+      transform: translateY(-3px);
+    }
+
+    /* Contact Form */
+    .contact-form {
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 20px;
+      padding: 44px 40px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .contact-form::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--gold), var(--gold-light), var(--gold-dark));
+    }
+
+    .form-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 6px;
+    }
+
+    .form-subtitle {
+      font-size: 0.85rem;
+      color: var(--gray);
+      margin-bottom: 32px;
+      font-weight: 300;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 18px;
+    }
+
+    .form-group.full { grid-column: span 2; }
+
+    label {
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--gray);
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+    }
+
+    input, textarea, select {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 10px;
+      padding: 13px 16px;
+      color: var(--white);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.9rem;
+      transition: all 0.3s ease;
+      outline: none;
+      width: 100%;
+    }
+
+    input::placeholder, textarea::placeholder { color: rgba(138,151,176,0.6); }
+
+    input:focus, textarea:focus, select:focus {
+      border-color: rgba(245,166,35,0.4);
+      background: rgba(245,166,35,0.04);
+      box-shadow: 0 0 0 3px rgba(245,166,35,0.08);
+    }
+
+    textarea { resize: vertical; min-height: 120px; }
+
+    select option { background: var(--navy-mid); color: var(--white); }
+
+    .submit-btn {
+      width: 100%;
+      background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+      color: var(--navy);
+      border: none;
+      padding: 16px 32px;
+      border-radius: 10px;
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 700;
+      font-size: 0.95rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      transition: all 0.3s ease;
+      box-shadow: 0 6px 25px rgba(245,166,35,0.25);
+      letter-spacing: 0.3px;
+      margin-top: 8px;
+    }
+
+    .submit-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 35px rgba(245,166,35,0.45);
+    }
+
+    .submit-btn:active { transform: translateY(0); }
+
+    /* Success message */
+    .form-success {
+      display: none;
+      text-align: center;
+      padding: 40px 20px;
+    }
+
+    .form-success.show { display: block; }
+    .form-fields.hide { display: none; }
+
+    .success-icon {
+      width: 70px; height: 70px;
+      background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.8rem;
+      color: var(--navy);
+      margin: 0 auto 20px;
+      animation: successPop 0.5s ease;
+    }
+
+    @keyframes successPop {
+      0% { transform: scale(0); }
+      70% { transform: scale(1.15); }
+      100% { transform: scale(1); }
+    }
+
+    .success-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 10px;
+    }
+
+    .success-desc {
+      font-size: 0.9rem;
+      color: var(--gray);
+      line-height: 1.6;
+    }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: #060e1c;
+      border-top: 1px solid rgba(245,166,35,0.1);
+      padding: 70px 5% 0;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1.5fr;
+      gap: 60px;
+      padding-bottom: 50px;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .footer-brand .logo-wrap {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    .footer-logo-icon {
+      width: 42px; height: 42px;
+      background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Playfair Display', serif;
+      font-weight: 900;
+      font-size: 1.15rem;
+      color: var(--navy);
+    }
+
+    .footer-logo-name {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: var(--white);
+    }
+
+    .footer-logo-tag {
+      font-size: 0.6rem;
+      color: var(--gold);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      display: block;
+      margin-top: 2px;
+    }
+
+    .footer-desc {
+      font-size: 0.88rem;
+      color: var(--gray);
+      line-height: 1.75;
+      font-weight: 300;
+      margin-bottom: 28px;
+      max-width: 280px;
+    }
+
+    .footer-social {
+      display: flex;
+      gap: 10px;
+    }
+
+    .footer-social a {
+      width: 36px; height: 36px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--gray);
+      font-size: 0.85rem;
+      text-decoration: none;
+      transition: all 0.3s;
+    }
+
+    .footer-social a:hover {
+      background: rgba(245,166,35,0.1);
+      border-color: rgba(245,166,35,0.3);
+      color: var(--gold);
+      transform: translateY(-2px);
+    }
+
+    .footer-col-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 20px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid rgba(245,166,35,0.15);
+    }
+
+    .footer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .footer-links a {
+      text-decoration: none;
+      color: var(--gray);
+      font-size: 0.87rem;
+      transition: all 0.3s;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      font-weight: 300;
+    }
+
+    .footer-links a::before {
+      content: '';
+      width: 0;
+      height: 1px;
+      background: var(--gold);
+      transition: width 0.3s;
+    }
+
+    .footer-links a:hover {
+      color: var(--gold);
+      padding-left: 4px;
+    }
+
+    .footer-links a:hover::before { width: 12px; }
+
+    .newsletter-form {
+      display: flex;
+      gap: 0;
+      margin-top: 4px;
+    }
+
+    .newsletter-form input {
+      border-radius: 8px 0 0 8px;
+      border-right: none;
+      font-size: 0.83rem;
+      padding: 11px 14px;
+    }
+
+    .newsletter-form input:focus { border-right: none; box-shadow: none; }
+
+    .newsletter-btn {
+      background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+      color: var(--navy);
+      border: none;
+      padding: 11px 16px;
+      border-radius: 0 8px 8px 0;
+      cursor: pointer;
+      font-size: 0.85rem;
+      transition: all 0.3s;
+      font-weight: 700;
+    }
+
+    .newsletter-btn:hover { opacity: 0.9; }
+
+    .newsletter-note {
+      font-size: 0.75rem;
+      color: var(--gray);
+      margin-top: 10px;
+      display: block;
+      opacity: 0.7;
+    }
+
+    .footer-contact-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      margin-bottom: 14px;
+      font-size: 0.85rem;
+      color: var(--gray);
+      font-weight: 300;
+    }
+
+    .footer-contact-item i {
+      color: var(--gold);
+      font-size: 0.8rem;
+      margin-top: 3px;
+      flex-shrink: 0;
+    }
+
+    /* Footer bottom */
+    .footer-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 22px 0;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .footer-copy {
+      font-size: 0.8rem;
+      color: var(--gray);
+      opacity: 0.7;
+    }
+
+    .footer-copy span { color: var(--gold); }
+
+    .footer-bottom-links {
+      display: flex;
+      gap: 20px;
+    }
+
+    .footer-bottom-links a {
+      font-size: 0.8rem;
+      color: var(--gray);
+      text-decoration: none;
+      opacity: 0.7;
+      transition: color 0.3s;
+    }
+
+    .footer-bottom-links a:hover { color: var(--gold); opacity: 1; }
+
+    /* ─── REVEAL ─── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* ─── SCROLL TOP ─── */
+    #scrollTop {
+      position: fixed;
+      bottom: 30px; right: 30px;
+      width: 44px; height: 44px;
+      background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+      color: var(--navy);
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1rem;
+      z-index: 999;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.3s ease;
+      box-shadow: 0 5px 20px rgba(245,166,35,0.35);
+    }
+
+    #scrollTop.show { opacity: 1; transform: translateY(0); }
+    #scrollTop:hover { transform: translateY(-3px); }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 1024px) {
+      .services-grid { grid-template-columns: 1fr 1fr; }
+      .why-grid { grid-template-columns: 1fr; gap: 50px; }
+      .contact-grid { grid-template-columns: 1fr; gap: 50px; }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
+    }
+
+    @media (max-width: 768px) {
+      section { padding: 70px 5%; }
+      .services-grid { grid-template-columns: 1fr; }
+      .why-right { grid-template-columns: 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+      .form-group.full { grid-column: span 1; }
+      .contact-form { padding: 32px 24px; }
+      .footer-grid { grid-template-columns: 1fr; gap: 36px; }
+      .footer-bottom { flex-direction: column; text-align: center; }
+    }
+
+    @media (max-width: 480px) {
+      .why-cta-group { flex-direction: column; }
+      .btn-primary, .btn-outline { justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ─── SERVICES ─── -->
+<section id="services">
+  <div class="services-header reveal">
+    <div class="section-tag">What We Offer</div>
+    <h2 class="section-title">Our Core <span class="accent">Services</span></h2>
+    <p class="section-desc">
+      From business consulting to digital transformation — we provide comprehensive solutions tailored for global expansion and South Asian market success.
+    </p>
+  </div>
+
+  <div class="services-grid reveal">
+
+    <div class="service-card featured">
+      <div class="service-num">01</div>
+      <div class="service-icon-wrap"><i class="fas fa-briefcase"></i></div>
+      <div class="service-name">Business Consulting</div>
+      <p class="service-text">Expert consulting by seasoned professionals with deep South Asia market knowledge. We work with partners and organizations to support effective and sustainable business expansion.</p>
+      <a href="#contact" class="service-link">Get Started <i class="fas fa-arrow-right"></i></a>
+    </div>
+
+    <div class="service-card">
+      <div class="service-num">02</div>
+      <div class="service-icon-wrap"><i class="fas fa-chart-bar"></i></div>
+      <div class="service-name">Market Research</div>
+      <p class="service-text">In-depth research and competitive analysis to help IT companies, cloud service providers, and software developers understand and penetrate South Asian markets effectively.</p>
+      <a href="#contact" class="service-link">Get Started <i class="fas fa-arrow-right"></i></a>
+    </div>
+
+    <div class="service-card">
+      <div class="service-num">03</div>
+      <div class="service-icon-wrap"><i class="fas fa-rocket"></i></div>
+      <div class="service-name">Business Development</div>
+      <p class="service-text">End-to-end business growth support — from company incorporation through to full-scale development. Digital marketing and e-commerce expertise included to maximize your reach.</p>
+      <a href="#contact" class="service-link">Get Started <i class="fas fa-arrow-right"></i></a>
+    </div>
+
+    <div class="service-card">
+      <div class="service-num">04</div>
+      <div class="service-icon-wrap"><i class="fas fa-handshake"></i></div>
+      <div class="service-name">Partner Development</div>
+      <p class="service-text">Identifying and securing strong local partners is essential for specialized solutions. We support strategic partner development and business matching opportunities across South Asia.</p>
+      <a href="#contact" class="service-link">Get Started <i class="fas fa-arrow-right"></i></a>
+    </div>
+
+    <div class="service-card">
+      <div class="service-num">05</div>
+      <div class="service-icon-wrap"><i class="fas fa-code"></i></div>
+      <div class="service-name">Software Development</div>
+      <p class="service-text">Technical consulting, proof of concept support, and complete software/system engineering — including project management, custom development, and ongoing customer support services.</p>
+      <a href="#contact" class="service-link">Get Started <i class="fas fa-arrow-right"></i></a>
+    </div>
+
+    <div class="service-card">
+      <div class="service-num">06</div>
+      <div class="service-icon-wrap"><i class="fas fa-ship"></i></div>
+      <div class="service-name">Import & Export Consultancy</div>
+      <p class="service-text">Connecting businesses with reliable global suppliers, managing logistics, regulatory compliance, and helping businesses seamlessly expand into international markets with confidence.</p>
+      <a href="#contact" class="service-link">Get Started <i class="fas fa-arrow-right"></i></a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ─── WHY US ─── -->
+<section id="why">
+  <div class="why-bg-text">WHY US</div>
+
+  <div class="why-grid">
+    <div class="why-left reveal">
+      <div class="section-tag">Why Adratic Global</div>
+      <h2 class="section-title">The Partner You <span class="accent">Deserve</span></h2>
+      <p class="section-desc">
+        With a decade of experience, a strong regional network, and multi-sector expertise, we provide everything your business needs to thrive in South Asia and beyond — under one roof.
+      </p>
+      <div class="why-cta-group">
+        <a href="#contact" class="btn-primary"><i class="fas fa-paper-plane"></i> Start a Conversation</a>
+        <a href="#services" class="btn-outline"><i class="fas fa-eye"></i> View Services</a>
+      </div>
+    </div>
+
+    <div class="why-right reveal">
+      <div class="why-card">
+        <div class="why-card-icon"><i class="fas fa-building"></i></div>
+        <div class="why-card-title">One-Stop Solution</div>
+        <p class="why-card-text">From company incorporation to full-scale business development, we handle every step so you can focus on what matters most.</p>
+      </div>
+
+      <div class="why-card">
+        <div class="why-card-icon"><i class="fas fa-medal"></i></div>
+        <div class="why-card-title">10 Years of Expertise</div>
+        <p class="why-card-text">A decade of proven experience navigating South Asia's unique business landscape — giving you a decisive competitive edge.</p>
+      </div>
+
+      <div class="why-card">
+        <div class="why-card-icon"><i class="fas fa-users-cog"></i></div>
+        <div class="why-card-title">Multi-Field Experts</div>
+        <p class="why-card-text">Collaborate with specialists across IT, marketing, trade, legal, and finance — all available through our trusted partner network.</p>
+      </div>
+
+      <div class="why-card">
+        <div class="why-card-icon"><i class="fas fa-laptop-code"></i></div>
+        <div class="why-card-title">Digital & IT Capabilities</div>
+        <p class="why-card-text">Advanced e-commerce, digital marketing, and IT tools to drive back-office efficiency and accelerate your digital transformation.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── TESTIMONIAL STRIP ─── -->
+<div class="testimonial-strip reveal">
+  <p class="testimonial-text">
+    "Adratic Global was the bridge we needed to enter South Asia. Their knowledge, network, and hands-on support made our expansion seamless and highly successful."
+  </p>
+  <div class="testimonial-author">
+    <div class="author-avatar">MK</div>
+    <div class="author-info">
+      <div class="author-name">Mohammed K.</div>
+      <div class="author-role">CEO, Gulf Tech Solutions — Dubai, UAE</div>
+    </div>
+  </div>
+</div>
+
+<!-- ─── CONTACT ─── -->
+<section id="contact">
+  <div class="contact-grid">
+
+    <!-- Left -->
+    <div class="contact-left reveal">
+      <div class="section-tag">Get In Touch</div>
+      <h2 class="section-title">Let's Build<br/><span class="accent">Together</span></h2>
+      <p class="section-desc">
+        Ready to expand your business into South Asia or connect to global markets? Reach out and our expert team will respond within 24 hours.
+      </p>
+
+      <div class="contact-info-list">
+        <div class="contact-info-item">
+          <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+          <div>
+            <div class="contact-info-title">Email Us</div>
+            <div class="contact-info-value">info@adraticglobal.com</div>
+          </div>
+        </div>
+        <div class="contact-info-item">
+          <div class="contact-icon"><i class="fas fa-phone"></i></div>
+          <div>
+            <div class="contact-info-title">Call Us</div>
+            <div class="contact-info-value">+880 1700 000 000</div>
+          </div>
+        </div>
+        <div class="contact-info-item">
+          <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+          <div>
+            <div class="contact-info-title">Our Location</div>
+            <div class="contact-info-value">Dhaka, Bangladesh — South Asia</div>
+          </div>
+        </div>
+        <div class="contact-info-item">
+          <div class="contact-icon"><i class="fas fa-clock"></i></div>
+          <div>
+            <div class="contact-info-title">Business Hours</div>
+            <div class="contact-info-value">Sun – Thu: 9:00 AM – 6:00 PM (BST)</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="social-row">
+        <a href="#" class="social-btn"><i class="fab fa-linkedin-in"></i></a>
+        <a href="#" class="social-btn"><i class="fab fa-twitter"></i></a>
+        <a href="#" class="social-btn"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" class="social-btn"><i class="fab fa-whatsapp"></i></a>
+      </div>
+    </div>
+
+    <!-- Right: Form -->
+    <div class="contact-right reveal">
+      <div class="contact-form">
+        <div class="form-title">Send Us a Message</div>
+        <div class="form-subtitle">We'll get back to you within 24 hours.</div>
+
+        <div class="form-fields">
+          <div class="form-row">
+            <div class="form-group">
+              <label>First Name</label>
+              <input type="text" placeholder="John" id="fname"/>
+            </div>
+            <div class="form-group">
+              <label>Last Name</label>
+              <input type="text" placeholder="Smith" id="lname"/>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label>Email Address</label>
+              <input type="email" placeholder="john@company.com" id="femail"/>
+            </div>
+            <div class="form-group">
+              <label>Phone Number</label>
+              <input type="tel" placeholder="+1 234 567 8900" id="fphone"/>
+            </div>
+          </div>
+
+          <div class="form-group" style="margin-bottom:18px;">
+            <label>Company Name</label>
+            <input type="text" placeholder="Your Company Ltd." id="fcompany"/>
+          </div>
+
+          <div class="form-group" style="margin-bottom:18px;">
+            <label>Service Interested In</label>
+            <select id="fservice">
+              <option value="" disabled selected>Select a service...</option>
+              <option>Business Consulting</option>
+              <option>Market Research</option>
+              <option>Business Development</option>
+              <option>Partner Development</option>
+              <option>Software Development</option>
+              <option>Import & Export Consultancy</option>
+              <option>General Inquiry</option>
+            </select>
+          </div>
+
+          <div class="form-group" style="margin-bottom:24px;">
+            <label>Message</label>
+            <textarea id="fmessage" placeholder="Tell us about your project or inquiry..."></textarea>
+          </div>
+
+          <button class="submit-btn" onclick="submitForm()">
+            <i class="fas fa-paper-plane"></i> Send Message
+          </button>
+        </div>
+
+        <div class="form-success" id="formSuccess">
+          <div class="success-icon"><i class="fas fa-check"></i></div>
+          <div class="success-title">Message Sent!</div>
+          <p class="success-desc">Thank you for reaching out. Our team will contact you within 24 hours.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FOOTER ─── -->
+<footer>
+  <div class="footer-grid">
+
+    <!-- Brand -->
+    <div class="footer-brand">
+      <div class="logo-wrap">
+        <div class="footer-logo-icon">AG</div>
+        <div>
+          <div class="footer-logo-name">Adratic Global</div>
+          <span class="footer-logo-tag">Strategic Partner</span>
+        </div>
+      </div>
+      <p class="footer-desc">
+        South Asia's leading strategic consultancy and business partner — connecting you to global opportunities with 10 years of expertise and a trusted regional network.
+      </p>
+      <div class="footer-social">
+        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-whatsapp"></i></a>
+      </div>
+    </div>
+
+    <!-- Services -->
+    <div>
+      <div class="footer-col-title">Services</div>
+      <ul class="footer-links">
+        <li><a href="#services">Business Consulting</a></li>
+        <li><a href="#services">Market Research</a></li>
+        <li><a href="#services">Business Development</a></li>
+        <li><a href="#services">Partner Development</a></li>
+        <li><a href="#services">Software Development</a></li>
+        <li><a href="#services">Import & Export</a></li>
+      </ul>
+    </div>
+
+    <!-- Company -->
+    <div>
+      <div class="footer-col-title">Company</div>
+      <ul class="footer-links">
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#why">Why Choose Us</a></li>
+        <li><a href="#regions">Regions We Serve</a></li>
+        <li><a href="#contact">Contact Us</a></li>
+        <li><a href="#">Careers</a></li>
+        <li><a href="#">Privacy Policy</a></li>
+      </ul>
+    </div>
+
+    <!-- Newsletter -->
+    <div>
+      <div class="footer-col-title">Stay Connected</div>
+      <div class="footer-contact-item">
+        <i class="fas fa-envelope"></i> info@adraticglobal.com
+      </div>
+      <div class="footer-contact-item">
+        <i class="fas fa-phone"></i> +880 1700 000 000
+      </div>
+      <div class="footer-contact-item">
+        <i class="fas fa-map-marker-alt"></i> Dhaka, Bangladesh, South Asia
+      </div>
+
+      <div style="margin-top: 20px;">
+        <label style="color: var(--gray); font-size: 0.78rem; font-weight: 600; letter-spacing: 0.8px; text-transform: uppercase; display: block; margin-bottom: 12px;">Newsletter</label>
+        <div class="newsletter-form">
+          <input type="email" placeholder="Your email address"/>
+          <button class="newsletter-btn"><i class="fas fa-arrow-right"></i></button>
+        </div>
+        <span class="newsletter-note">No spam. Only business insights & updates.</span>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    <p class="footer-copy">
+      &copy; 2025 <span>Adratic Global</span>. All rights reserved. Built with purpose for global growth.
+    </p>
+    <div class="footer-bottom-links">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Service</a>
+      <a href="#">Sitemap</a>
+    </div>
+  </div>
+</footer>
+
+<!-- Scroll to top -->
+<button id="scrollTop" title="Back to top">
+  <i class="fas fa-chevron-up"></i>
+</button>
+
+<!-- ─── JAVASCRIPT ─── -->
+<script>
+  // Scroll events
+  const scrollTopBtn = document.getElementById('scrollTop');
+  window.addEventListener('scroll', () => {
+    scrollTopBtn.classList.toggle('show', window.scrollY > 200);
+  });
+  scrollTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 100);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.08 });
+  reveals.forEach(el => observer.observe(el));
+
+  // Smooth scroll
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth' }); }
+    });
+  });
+
+  // Form submit
+  function submitForm() {
+    const fname = document.getElementById('fname').value.trim();
+    const femail = document.getElementById('femail').value.trim();
+    const fmessage = document.getElementById('fmessage').value.trim();
+
+    if (!fname || !femail || !fmessage) {
+      // Shake animation on empty fields
+      const fields = [fname, femail, fmessage];
+      ['fname','femail','fmessage'].forEach((id, i) => {
+        if (!fields[i]) {
+          const el = document.getElementById(id);
+          el.style.borderColor = 'rgba(255,80,80,0.5)';
+          el.style.boxShadow = '0 0 0 3px rgba(255,80,80,0.08)';
+          setTimeout(() => {
+            el.style.borderColor = '';
+            el.style.boxShadow = '';
+          }, 2500);
+        }
+      });
+      return;
+    }
+
+    // Show success
+    document.querySelector('.form-fields').classList.add('hide');
+    document.getElementById('formSuccess').classList.add('show');
+  }
+
+  // Newsletter
+  document.querySelector('.newsletter-btn').addEventListener('click', function() {
+    const input = this.previousElementSibling;
+    if (input.value.includes('@')) {
+      input.value = '';
+      input.placeholder = '✓ Subscribed!';
+      setTimeout(() => input.placeholder = 'Your email address', 3000);
+    }
+  });
+</script>
+</body>
+</html>
